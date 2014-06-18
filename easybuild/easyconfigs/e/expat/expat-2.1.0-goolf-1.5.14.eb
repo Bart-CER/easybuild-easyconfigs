@@ -1,0 +1,43 @@
+# Built with EasyBuild version 1.12.1 on 2014-05-14_16-00-59
+# Built with EasyBuild version 1.12.1 on 2014-05-07_14-29-22
+name = 'expat'
+version = '2.1.0'
+
+homepage = 'http://expat.sourceforge.net/'
+description = """Expat is an XML parser library written in C. It is a stream-oriented parser in which an application
+registers handlers for things the parser might find in the XML document (like start tags)"""
+toolchain = {'name': 'goolf', 'version': '1.5.14'} # tweaked by EasyBuild (was: {'name': 'goolf', 'version': '1.4.10'})
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [SOURCEFORGE_SOURCE]
+
+moduleclass = 'tools'
+
+# Build statistics
+buildstats = [{
+    'easybuild-framework_version': '1.12.1',
+    'easybuild-easyblocks_version': '1.12.1',
+    'host': 'build-gpu-p',
+    'platform': 'Linux-2.6.32-279.14.1.el6.x86_64-x86_64-with-redhat-6.3-Santiago',
+    'cpu_model': 'Intel(R) Xeon(R) CPU           X5660  @ 2.80GHz',
+    'core_count': 12,
+    'timestamp': 1399429762,
+    'build_time': 11.67,
+    'install_size': 992939,
+    'command_line': ['--buildpath=/share/easybuild/RHEL6.3/westmere/build', '--installpath=/home/pmax001/easybuildinstall', '--prefix=/share/easybuild/RHEL6.3/westmere', '--pretend', '--repositorypath=/share/easybuild/RHEL6.3/westmere/ebfiles_repo', '--sourcepath=/share/easybuild/src', '--try-toolchain-version=1.5.14', 'expat-2.1.0-goolf-1.4.10.eb'],
+    'modules_tool': ('EnvironmentModulesC', '/share/apps/Modules/3.2.10/bin/modulecmd', '3.2.10'),
+}]
+
+buildstats.append({
+    'easybuild-framework_version': '1.12.1',
+    'easybuild-easyblocks_version': '1.12.1',
+    'host': 'wm080',
+    'platform': 'Linux-2.6.32-279.14.1.el6.x86_64-x86_64-with-redhat-6.3-Santiago',
+    'cpu_model': 'Intel(R) Xeon(R) CPU           X5660  @ 2.80GHz',
+    'core_count': 1,
+    'timestamp': 1400040059,
+    'build_time': 13.85,
+    'install_size': 992746,
+    'command_line': ['--buildpath=/share/easybuild/RHEL6.3/westmere/build', '--installpath=/share/easybuild/RHEL6.3/westmere', '--prefix=/share/easybuild/RHEL6.3/westmere', '--repositorypath=/share/easybuild/RHEL6.3/westmere/ebfiles_repo', '--sourcepath=/share/easybuild/src', 'expat/2.1.0-goolf-1.5.14.eb'],
+    'modules_tool': ('EnvironmentModulesC', '/share/apps/Modules/3.2.10/bin/modulecmd', '3.2.10'),
+})

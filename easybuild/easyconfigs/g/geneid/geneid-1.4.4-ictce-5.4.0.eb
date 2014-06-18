@@ -1,0 +1,45 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Cedric Laczny <cedric.laczny@uni.lu>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+##
+
+name = 'geneid'
+version = '1.4.4'
+
+easyblock = 'MakeCp'
+
+homepage = 'http://genome.crg.es/software/geneid/index.html'
+
+description = """Predicts genes in anonymous genomic sequences. In the first step, splice sites, start and stop 
+codons are predicted and scored along the sequence using Position Weight Arrays (PWAs). In the second step, 
+exons are built from the sites. Exons are scored as the sum of the scores of the defining sites, plus the 
+log-likelihood ratio of a Markov Model for coding DNA. Finally, from the set of predicted exons, the gene 
+structure is assembled, maximizing the sum of the scores of the assembled exons. geneid offers some type of 
+support to integrate predictions from multiple source via external gff files and the redefinition of the 
+general gene structure or model is also feasible."""
+toolchain = {'name': 'ictce', 'version': '5.4.0'} # tweaked by EasyBuild (was: {'name': 'goolf', 'version': '1.5.14'})
+toolchainopts = {'optarch': True}
+
+source_urls = ['ftp://genome.crg.es/pub/software/geneid/']
+release_date = {'1.4.4':'Jan_13_2011'}[version]
+sources = ['geneid_v%s.%s.tar.gz' % (version, release_date)]
+
+dependencies = []
+
+sanity_check_paths = {
+    'files': ['bin/geneid'],
+    'dirs': ['param'],
+}
+
+files_to_copy = ['bin', 'param', 'GNU_PL', 'docs', 'samples', 'README']
+
+modextravars = {'GENEID': '$root/param/human3isoU12.param'}  # best default?  could download others.  could not set.
+
+moduleclass = 'bio'
