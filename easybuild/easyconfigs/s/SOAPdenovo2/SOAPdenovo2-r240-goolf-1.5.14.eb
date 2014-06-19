@@ -27,7 +27,7 @@ toolchainopts = {'optarch': True, 'pic': True}
 sources = ['%s-src-%s.tgz' % (name, version)]
 source_urls = [SOURCEFORGE_SOURCE]
 
-patches = ['SOAPdenovo2_stdinc.patch']
+patches = ['SOAPdenovo2-fix-unistd-includes.patch']
 
 files_to_copy = [(['SOAPdenovo-127mer', 'SOAPdenovo-63mer'], 'bin')]
 

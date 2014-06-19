@@ -10,8 +10,6 @@
 # http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
 ##
 
-easyblock = 'GenomeAnalysisTK2'
-
 name = 'GATK'
 version = '3.1-1'
 
