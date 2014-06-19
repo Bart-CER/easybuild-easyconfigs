@@ -7,13 +7,13 @@ description = """The Intel(R) MPI Library for Linux* OS is a multi-fabric messag
  Linux OS implements the Message Passing Interface, version 2 (MPI-2) specification."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
+sourcesdir='/share/src/Intel/'
+sources = ['/share/src/Intel/l_mpi_p_%(version)s.tgz' ]
 
-sources = ['l_mpi_p_%(version)s.tgz']
+moduleclass = 'mpi'
 
-dontcreateinstalldir = 'True'
+dontcreateinstalldir = 'False'
 
 # license file
 import os
-license_file = os.path.join(os.getenv('HOME'), "licenses", "intel", "license.lic")
-
-moduleclass = 'mpi'
+license_file = os.path.join("/share/apps/", "intel", "licenses","license.lic")

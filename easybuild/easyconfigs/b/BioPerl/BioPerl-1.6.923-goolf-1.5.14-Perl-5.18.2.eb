@@ -1,0 +1,56 @@
+# Built with EasyBuild version 1.12.1 on 2014-05-14_16-40-07
+# Built with EasyBuild version 1.12.1 on 2014-05-08_15-52-00
+easyblock = 'PerlModuleWithDeps'
+
+name = 'BioPerl'
+version = '1.6.923'
+
+homepage = 'http://www.bioperl.org/'
+description = """Bioperl is the product of a community effort to produce Perl code which is useful in biology.
+ Examples include Sequence objects, Alignment objects and database searching objects."""
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+source_urls = ['http://www.cpan.org/modules/by-module/Bio/CJFIELDS/']
+sources = [SOURCE_TAR_GZ]
+
+perl = 'Perl'
+perlver = '5.18.2'
+versionsuffix = '-%s-%s' % (perl, perlver)
+
+dependencies = [
+    (perl, perlver),
+]
+
+options = {'modulename': 'Bio::Perl'}
+
+moduleclass = 'bio'
+
+# Build statistics
+buildstats = [{
+    'easybuild-framework_version': '1.12.1',
+    'easybuild-easyblocks_version': '1.12.1',
+    'host': 'build-gpu-p',
+    'platform': 'Linux-2.6.32-279.14.1.el6.x86_64-x86_64-with-redhat-6.3-Santiago',
+    'cpu_model': 'Intel(R) Xeon(R) CPU           X5660  @ 2.80GHz',
+    'core_count': 12,
+    'timestamp': 1399521120,
+    'build_time': 476.43,
+    'install_size': 21603571,
+    'command_line': ['--buildpath=/share/easybuild/RHEL6.3/westmere/build', '--installpath=/home/pmax001/easybuildinstall', '--prefix=/share/easybuild/RHEL6.3/westmere', '--pretend', '--repositorypath=/share/easybuild/RHEL6.3/westmere/ebfiles_repo', '--sourcepath=/share/easybuild/src', 'BioPerl-1.6.9-goolf-1.5.14-Perl-5.18.2.eb'],
+    'modules_tool': ('EnvironmentModulesC', '/share/apps/Modules/3.2.10/bin/modulecmd', '3.2.10'),
+}]
+
+buildstats.append({
+    'easybuild-framework_version': '1.12.1',
+    'easybuild-easyblocks_version': '1.12.1',
+    'host': 'wm080',
+    'platform': 'Linux-2.6.32-279.14.1.el6.x86_64-x86_64-with-redhat-6.3-Santiago',
+    'cpu_model': 'Intel(R) Xeon(R) CPU           X5660  @ 2.80GHz',
+    'core_count': 1,
+    'timestamp': 1400042407,
+    'build_time': 476.13,
+    'install_size': 21609789,
+    'command_line': ['--buildpath=/share/easybuild/RHEL6.3/westmere/build', '--force', '--installpath=/share/easybuild/RHEL6.3/westmere', '--prefix=/share/easybuild/RHEL6.3/westmere', '--repositorypath=/share/easybuild/RHEL6.3/westmere/ebfiles_repo', '--sourcepath=/share/easybuild/src', 'BioPerl/1.6.923-goolf-1.5.14-Perl-5.18.2.eb'],
+    'modules_tool': ('EnvironmentModulesC', '/share/apps/Modules/3.2.10/bin/modulecmd', '3.2.10'),
+})

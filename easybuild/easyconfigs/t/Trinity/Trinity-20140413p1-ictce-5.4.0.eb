@@ -24,8 +24,11 @@ dependencies = [
     (java, javaver, '', True),
     ('ant', '1.9.0', '-%s-%s' % (java, javaver), True),
     ('ncurses', '5.9'),
-    ('zlib', '1.2.7'),
+    ('zlib', '1.2.8'),
+    ('Bowtie2', '2.2.0'),
 ]
+
+armci_network = 'MELLANOX' 
 
 bwapluginver = "0.5.7"
 RSEMmod = True

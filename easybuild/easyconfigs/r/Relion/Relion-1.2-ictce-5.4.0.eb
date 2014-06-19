@@ -1,0 +1,14 @@
+name = 'Relion'
+version = '1.2'
+
+homepage = 'http://www2.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page'
+description = """RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) 
+    is a stand-alone computer program that employs an empirical Bayesian 
+    approach to refinement of (multiple) 3D reconstructions or 2D class 
+    averages in electron cryo-microscopy (cryo-EM). """
+
+
+toolchain = {'name': 'ictce', 'version': '5.4.0'}
+
+sources = ['%s-%s.tar.bz2' % (name.lower(), version)]
+

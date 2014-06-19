@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Cedric Laczny <cedric.laczny@uni.lu>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+##
+
+name = 'SGA'
+version = '0.10.13'
+
+homepage = 'https://github.com/jts/sga/wiki'
+
+description = """SGA is a de novo genome assembler based on the concept of string graphs. 
+The major goal of SGA is to be very memory efficient, which is achieved by using a compressed 
+representation of DNA sequence reads."""
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+sources = ['v%s.tar.gz' % version]
+source_urls = ['https://github.com/jts/sga/archive/']
+
+dependencies = [
+	('google-sparsehash', '2.0.2'),
+	('BamTools', '2.3.0'),
+	('zlib', '1.2.8'),
+]
+
+#    -(optional but suggested) the jemalloc memory allocator (http://www.canonware.com/jemalloc/download.html)
+#Additionally, the pipeline python scripts use the following modules. These
+#are not required to build SGA but must be available if you want to use the relevant 
+#python helper scripts:
+#    -pysam (http://code.google.com/p/pysam/)
+#    -ruffus (http://www.ruffus.org.uk/)
+
+start_dir = 'src'
+preconfigopts = "./autogen.sh && "
+configopts = "--with-sparsehash=$EBROOTGOOGLEMINSPARSEHASH --with-bamtools=$EBBAMTOOLSROOT --disable-dependency-tracking"
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['bin'],
+}
+
+moduleclass = 'bio'

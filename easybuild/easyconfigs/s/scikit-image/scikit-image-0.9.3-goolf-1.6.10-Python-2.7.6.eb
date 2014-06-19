@@ -1,0 +1,37 @@
+easyblock = "PythonPackage"
+
+name = "scikit-image"
+version = "0.9.3"
+
+homepage = 'http://scikit-image.org/docs/dev/api/skimage.html'
+description = """Image processing algorithms for SciPy, including IO, morphology, filtering, warping, color manipulation, object detection, etc.
+"""
+
+toolchain = {'version': '1.6.10', 'name': 'goolf'}
+
+source_urls = [PYPI_SOURCE]
+sources = [SOURCE_TAR_GZ]
+
+python = "Python"
+pythonversion = '2.7.6'
+pythonshortversion = ".".join(pythonversion.split(".")[:2])
+
+versionsuffix = "-%s-%s" % (python, pythonversion)
+dependencies = [
+    (python, pythonversion),
+    ('Pillow', '2.4.0', versionsuffix),
+#   ('matplotlib', '1.1.1', versionsuffix),
+]
+options = {'modulename': "skimage"}
+
+moduleclass = 'data'
+
+
+#Build Requirements
+#Python >= 2.5
+#Numpy >= 1.6
+#Cython >= 0.17
+#Matplotlib >= 1.0 is needed to generate the examples in the documentation.
+
+#Runtime requirements
+#SciPy >= 0.10

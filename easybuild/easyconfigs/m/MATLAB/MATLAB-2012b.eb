@@ -8,13 +8,13 @@ description = """MATLAB is a high-level language and interactive environment
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = [SOURCELOWER_TAR_GZ]
+sources = ['/share/src/Cluster/MATLAB/FoE/R2012b_linux_x64/2012b.tar.gz']
 
-dependencies =[('Java', '1.7.0_10')]
+dependencies =[('Java', '1.8.0_5')]
 
 import os
-license_server = os.getenv('EB_MATLAB_LICENSE_SERVER', 'license.example.com')
-license_server_port = os.getenv('EB_MATLAB_LICENSE_SERVER_PORT', '00000')
-key = os.getenv('EB_MATLAB_KEY', '00000-00000-00000-00000-00000-00000-00000-00000-00000-00000')
+license_server = os.getenv('EB_MATLAB_LICENSE_SERVER', 'matlabpro.licenses.foe.auckland.ac.nz')
+license_server_port = os.getenv('EB_MATLAB_LICENSE_SERVER_PORT', '27009')
+key = os.getenv('EB_MATLAB_KEY', '59615-14866-37187-48724-08224-51091-24445-09009-07713-34247-56609-33825') 
 
 moduleclass = 'math'
