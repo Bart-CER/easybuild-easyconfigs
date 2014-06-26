@@ -9,7 +9,7 @@ description = """ANSYS simulation software enables organizations to confidently 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 import os
-license_server = os.getenv('EB_ANSYS_LICENSE_SERVER', 'licenses.foe.auckland.ac.nz')
+license_server = os.getenv('EB_ANSYS_LICENSE_SERVER', 'ansys.licenses.foe.auckland.ac.nz')
 license_server_port = os.getenv('EB_ANSYS_LICENSE_SERVER_PORT', '2325:1055')
 sources = ['ANSYS-15.0.zip']
 source_urls = ['/share/src/Ansys150']
