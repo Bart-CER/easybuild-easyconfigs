@@ -6,7 +6,7 @@ description = "Fortran compiler from Intel"
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = ['l_fcompxe_%s.tgz' % version]
+sources = ['/share/src/Intel/intel-composer-2011/l_fcompxe_%s.tgz' % version]
 
 dontcreateinstalldir = 'True'
 
