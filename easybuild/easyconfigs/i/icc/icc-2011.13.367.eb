@@ -6,7 +6,7 @@ description = "C and C++ compiler from Intel"
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = ['l_ccompxe_%s.tgz' % version]
+sources = ['/share/src/Intel/intel-composer-2011/l_ccompxe_%s.tgz' % version]
 
 dontcreateinstalldir = 'True'
 

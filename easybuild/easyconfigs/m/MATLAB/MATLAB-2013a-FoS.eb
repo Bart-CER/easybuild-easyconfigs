@@ -1,0 +1,21 @@
+name = 'MATLAB'
+version = '2013a'
+versionsuffix = '-FoS'
+
+homepage = 'http://www.mathworks.com/products/matlab'
+description = """MATLAB is a high-level language and interactive environment
+ that enables you to perform computationally intensive tasks faster than with
+ traditional programming languages such as C, C++, and Fortran."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['/share/src/Cluster/MATLAB/FoS/R2013a/MATLAB-R2013a.zip']
+
+dependencies =[('Java', '1.8.0_5')]
+
+import os
+license_server = os.getenv('EB_MATLAB_LICENSE_SERVER', 'licenses.fos.auckland.ac.nz')
+license_server_port = os.getenv('EB_MATLAB_LICENSE_SERVER_PORT', '27000')
+key = os.getenv('EB_MATLAB_KEY', '45109-54100-59656-55219-35801-64950-12694-51711') 
+
+moduleclass = 'math'

@@ -1,0 +1,21 @@
+name = 'MATLAB'
+version = '2012b'
+versionsuffix = '-FoE'
+
+homepage = 'http://www.mathworks.com/products/matlab'
+description = """MATLAB is a high-level language and interactive environment
+ that enables you to perform computationally intensive tasks faster than with
+ traditional programming languages such as C, C++, and Fortran."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['/share/src/Cluster/MATLAB/FoE/R2012b_linux_x64/2012b.tar.gz']
+
+dependencies =[('Java', '1.8.0_5')]
+
+import os
+license_server = os.getenv('EB_MATLAB_LICENSE_SERVER', 'matlabpro.licenses.foe.auckland.ac.nz')
+license_server_port = os.getenv('EB_MATLAB_LICENSE_SERVER_PORT', '27009')
+key = os.getenv('EB_MATLAB_KEY', '59615-14866-37187-48724-08224-51091-24445-09009-07713-34247-56609-33825') 
+
+moduleclass = 'math'

@@ -9,9 +9,9 @@ description = """Intel Math Kernel Library is a library of highly optimized,
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = ['l_mkl_%(version)s.tgz']
+sources = ['/share/src/Intel/intel-composer-2011/l_mkl_%(version)s.tgz']
 
-compver = '2013.3.163'
+compver = '2011.13.367'
 
 # deps for interface build
 dependencies = [

@@ -9,7 +9,7 @@ description = """Intel Math Kernel Library is a library of highly optimized,
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = ['l_mkl_%(version)s.tgz']
+sources = ['/share/src/Intel/2013.4.183/l_mkl_%(version)s.tgz' ]
 
 compver = '2013.4.183'
 
@@ -17,7 +17,7 @@ compver = '2013.4.183'
 dependencies = [
     ('icc', compver),
     ('ifort', compver),
-    ('impi', '4.1.0.030'),
+    ('impi', '4.1.2.040'),
 ]
 
 dontcreateinstalldir = 'True'
@@ -26,6 +26,5 @@ interfaces = True
 
 # license file
 import os
-license_file = os.path.join(os.getenv('HOME'), "licenses", "intel", "license.lic")
-
+license_file = os.path.join("/share/apps/", "intel", "licenses","license.lic")
 moduleclass = 'numlib'

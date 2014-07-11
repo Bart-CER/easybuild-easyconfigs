@@ -1,0 +1,26 @@
+name = "PhyloBayesMPI" 
+version = "1.5a"
+
+homepage = 'http://megasun.bch.umontreal.ca/People/lartillot/www/index.htm'
+description = """Phylogenetic reconstruction using infinite mixtures"""
+toolchain = {'name': 'goolf', 'version': '1.5.14'} # tweaked by EasyBuild (was: {'version': '1.6.10', 'name': 'goolf'} )
+toolchainopts = {}  
+
+sources = ['pb_mpi%(version)s.tar.gz']
+source_urls = ['http://megasun.bch.umontreal.ca/People/lartillot/www/']
+
+patches = []
+
+dependencies = []
+
+# The sanity test MUST be tuned before going production and submitting your contribution to upstream git repositories
+sanity_check_paths = {
+    'files': [],
+    'dirs': ["."]
+}
+
+moduleclass = 'bio'
+
+easyblock='MakeCp'
+makeopts='-C sources'
+files_to_copy=[(['data/bpcomp','data/bpcomp2','data/pb_mpi','data/readpb_mpi','data/tracecomp'], 'bin')]

@@ -11,7 +11,7 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 compver = '2011.13.367'
 comp = ('iccifort', compver)
 ompi = 'OpenMPI'
-ompiver = '1.6.3'
+ompiver = '1.6.5'
 
 dependencies = [
     ('icc', compver),
