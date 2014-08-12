@@ -1,0 +1,25 @@
+name = 'libleveldb'
+version = '1.15.0'
+
+homepage = 'https://code.google.com/p/leveldb/'
+description = "A fast and lightweight key/value database library by Google."
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+toolchainopts = {'optarch': True}
+configopts = "--with-pic"
+
+source_urls = ['https://leveldb.googlecode.com/files'] 
+sources = ['leveldb-%s.tar.gz' % (version)]
+
+dependencies = [('libsnappy', '1.1.1')]
+
+easyblock = 'MakeCp'
+
+files_to_copy = [(['libleveldb.so', 'libleveldb.a'], 'lib'), 'include']
+
+sanity_check_paths = {
+    'files': ['lib/libleveldb.so', 'lib/libleveldb.a', 'include/leveldb/db.h'],
+    'dirs': []
+}
+
+moduleclass = 'lib'

@@ -1,0 +1,21 @@
+name = 'libsnappy'
+version = '1.1.1'
+
+homepage = 'https://code.google.com/p/snappy/'
+description = "Snappy is a compression/decompression library. It does not aim for maximum compression, or compatibility with any other compression library; instead, it aims for very high speeds and reasonable compression."
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+toolchainopts = {'optarch': True}
+configopts = "--with-pic"
+
+source_urls = ['https://snappy.googlecode.com/files']
+sources = ['snappy-%s.tar.gz' % (version)]
+
+easyblock = 'ConfigureMake'
+
+sanity_check_paths = {
+	'files': ['lib/libsnappy.so', 'lib/libsnappy.a', 'include/snappy.h'],
+	'dirs': ['lib', 'share', 'include']
+}
+
+moduleclass = 'lib'
