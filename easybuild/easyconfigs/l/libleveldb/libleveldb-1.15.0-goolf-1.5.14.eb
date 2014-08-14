@@ -15,6 +15,7 @@ dependencies = [('libsnappy', '1.1.1')]
 
 easyblock = 'MakeCp'
 
+premakeopts = 'mkdir -p %(installdir)s/lib && '
 files_to_copy = [(['libleveldb.so', 'libleveldb.a'], 'lib'), 'include']
 
 sanity_check_paths = {

@@ -1,0 +1,10 @@
+name = 'OpenCV'
+version = '2.4.9'
+
+source_urls = 'http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix'
+sources = '$(version)s/opencv-%(version)s.zip'
+
+easyblock = 'ConfigureMake'
+
+
+

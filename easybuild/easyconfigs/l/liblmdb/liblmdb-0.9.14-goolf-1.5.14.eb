@@ -1,0 +1,24 @@
+name = 'liblmdb'
+version = '0.9.14'
+
+homepage = 'http://symas.com/mdb'
+description = "LMDB is an ultra-fast, ultra-compact key-value embedded data store developed by Symas for the OpenLDAP Project"
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+toolchainopts = {'optarch': True}
+
+sources = ['%s-%s.tar.gz' % (name, version)]
+
+easyblock = 'ConfigureMake'
+skipsteps = ['configure']
+
+dirs = ['bin', 'include', 'lib', 'man/man1']
+preinstallopts = " ".join(["mkdir -p %(installdir)s/" + d + " &&" for d in dirs])
+installopts = ' DESTDIR=%(installdir)s prefix=""'
+
+sanity_check_paths = {
+	'files': ['lib/liblmdb.so', 'include/lmdb.h'],
+	'dirs': ['lib', 'man/man1', 'include', 'bin']
+}
+
+moduleclass = 'lib'
