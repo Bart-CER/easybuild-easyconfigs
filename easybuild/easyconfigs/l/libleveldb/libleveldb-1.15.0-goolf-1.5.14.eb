@@ -16,11 +16,12 @@ dependencies = [('libsnappy', '1.1.1')]
 easyblock = 'MakeCp'
 
 premakeopts = 'mkdir -p %(installdir)s/lib && '
-files_to_copy = [(['libleveldb.so', 'libleveldb.a'], 'lib'), 'include']
+files_to_copy = [(['libleveldb.a', 'libleveldb.so' ,'libleveldb.so.1', 'libleveldb.so.1.15'], 'lib'), 'include']
+
 
 sanity_check_paths = {
-    'files': ['lib/libleveldb.so', 'lib/libleveldb.a', 'include/leveldb/db.h'],
-    'dirs': []
+    'files': ['lib/libleveldb.a', 'lib/libleveldb.so' ,'lib/libleveldb.so.1', 'lib/libleveldb.so.1.15', 'include/leveldb/db.h'],
+    'dirs': ['lib', 'include']
 }
 
 moduleclass = 'lib'

@@ -8,6 +8,7 @@ description = """VAMP/VASP is a package for performing ab-initio quantum-mechani
 dynamics (MD) using pseudopotentials and a plane wave basis set."""
 
 toolchain = {'name': 'iomkl', 'version': '4.6.13'}
+toolchainopts = {'usempi': True}
 
 sources = [
     '%(namelower)s.%(version)s.tar.gz',
