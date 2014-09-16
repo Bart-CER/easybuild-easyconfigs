@@ -1,10 +1,15 @@
-name = 'OpenCV'
-version = '2.4.9'
+name = "OpenCV"
+version = "2.4.9"
+homepage = "http://opencv.org/"
+description = "OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. OpenCV was built to provide a common infrastructure for computer vision applications and to accelerate the use of machine perception in the commercial products."
 
-source_urls = 'http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix'
-sources = '$(version)s/opencv-%(version)s.zip'
+source_urls = ['http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/%(version)s']
+sources = ['opencv-%(version)s.zip']
 
-easyblock = 'ConfigureMake'
+easyblock = 'CMakeMake'
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+toolchainopts = {'pic': True}
+builddependencies = [('CMake', '2.8.12')]
 
-
-
+dependencies = [('Python', '2.7.6'), ('CUDA', '6.0.37', "", True), ('FFmpeg', '2.3.3'), ('Java', '1.8.0_5', "", True)]
+configopts = "-DWITH_OPENMP=ON -DOPENCV_BUILD_3RDPARTY_LIBS=ON"

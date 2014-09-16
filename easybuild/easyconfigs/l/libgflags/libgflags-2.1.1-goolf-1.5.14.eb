@@ -7,7 +7,7 @@ description = "The gflags package contains a library that implements commandline
 toolchain = {'name': 'goolf', 'version': '1.5.14'}
 builddependencies = [('CMake', '2.8.12')]
 
-toolchainopts = {'optarch': True}
+toolchainopts = {'optarch': True, 'pic': True}
 
 source_urls = ['https://github.com/schuhschuh/gflags/archive']
 sources = ['v%s.tar.gz' % (version)]
