@@ -1,0 +1,27 @@
+name = "TurboVNC"
+version = "1.2.1"
+homepage = "http://www.turbovnc.org/"
+description = "TurboVNC is a high-performance, enterprise-quality version of VNC based on TightVNC, x4vnc, TigerVNC, and X.org."
+
+#http://downloads.sourceforge.net/project/turbovnc/1.2.1/turbovnc-1.2.1.tar.gz
+source_urls = [SOURCEFORGE_SOURCE]
+sources = ['%(version)s/%(namelower)s-%(version)s.tar.gz']
+
+easyblock = 'CMakeMake'
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+toolchainopts = {'pic': True}
+builddependencies = [('CMake', '2.8.12')]
+
+parallel = 1
+dependencies = [('libjpeg-turbo', '1.3.0')]
+#configopts = "-DTJPEG_INCLUDE_DIR=$EBROOTLIBJPEGMINTURBO/include -DTJPEG_LIBRARY=$EBROOTLIBJPEGMINTURBO/lib/libturbojpeg.so -DX11_Xaw_LIB=/usr/lib64/libXaw.so"
+configopts = "-DTJPEG_INCLUDE_DIR=$EBROOTLIBJPEGMINTURBO/include -DTJPEG_LIBRARY=$EBROOTLIBJPEGMINTURBO/lib/libturbojpeg.so"
+preinstallopts = " make xserver && "
+
+files = ['tvncconfig', 'vncconnect', 'vncpasswd', 'vncserver','vncviewer'] 
+sanity_check_paths = {
+                      'files': ["bin/"+f for f in files],
+                      'dirs': ["bin"]
+                     }
+
+moduleclass = 'vis'
