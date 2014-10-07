@@ -1,0 +1,15 @@
+name = "FFmpeg"
+version = "2.3.3"
+homepage = "http://www.ffmpeg.org/"
+description = "OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. OpenCV was built to provide a common infrastructure for computer vision applications and to accelerate the use of machine perception in the commercial products."
+
+source_urls = ['http://ffmpeg.org/releases']
+sources = ['ffmpeg-%(version)s.tar.bz2']
+
+easyblock = 'ConfigureMake'
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+configopts = " --enable-shared"
+toolchainopts = {'pic' : True}
+
+dependencies = [('Yasm', '1.2.0')]
+
