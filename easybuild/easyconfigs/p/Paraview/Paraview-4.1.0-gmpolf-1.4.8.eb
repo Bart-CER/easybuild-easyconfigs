@@ -17,6 +17,8 @@ dependencies = [('Qt','4.8.5')]
 
 builddependencies = [('CMake', '2.8.10.2')]
 
+configopts = "-DPARAVIEW_INSTALL_DEVELOPMENT_FILES:STRING=ON"
+
 separate_build_dir = True
 
 moduleclass = 'vis'

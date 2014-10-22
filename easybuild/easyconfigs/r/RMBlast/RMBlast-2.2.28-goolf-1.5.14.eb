@@ -1,0 +1,38 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>, Kenneth Hoste (UGent)
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+##
+
+name = 'RMBlast'
+version = '2.2.28'
+altversions = []
+
+homepage = 'http://www.repeatmasker.org/RMBlast.html'
+description = """RMBlast supports RepeatMasker searches by adding a few necessary features to the stock NCBI blastn program. These include:
+Support for custom matrices ( without KA-Statistics ).
+Support for cross_match-like complexity adjusted scoring. Cross_match is Phil Green's seeded smith-waterman search algorithm.
+Support for cross_match-like masklevel filtering.."""
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+# eg. ncbi-rmblastn-2.2.28-src.tar.gz
+sources = ['ncbi-rmblastn-%(version)s-src.tar.gz']
+source_urls = ['ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/%(version)s/']
+
+dependencies = [('Boost', '1.53.0')]
+
+configopts = '--with-boost=$EBROOTBOOST --with-64 --with-bin-release --without-debug --with-mt'
+
+sanity_check_paths = {
+                      'files': ["bin/rmblastn",],
+                      'dirs': []
+                     }
+
+moduleclass = 'bio'

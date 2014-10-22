@@ -1,0 +1,22 @@
+name = 'libglog'
+version = '0.3.3'
+
+homepage = 'https://code.google.com/p/google-glog/'
+description = "The glog library implements application-level logging. This library provides logging APIs based on C++-style streams and various helper macros."
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+toolchainopts = {'optarch': True}
+configopts = "--with-pic"
+
+source_urls = ['https://google-glog.googlecode.com/files']
+sources = ['glog-%s.tar.gz' % (version)]
+
+easyblock = 'ConfigureMake'
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib', 'include', 'share']
+}
+
+moduleclass = 'lib'

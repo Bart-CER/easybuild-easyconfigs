@@ -1,0 +1,53 @@
+diff -ur semtex-V7_4.orig/src/Makefile semtex-V7_4/src/Makefile
+--- semtex-V7_4.orig/src/Makefile	2013-10-22 06:27:46.000000000 +1300
++++ semtex-V7_4/src/Makefile	2014-09-09 14:58:54.509140024 +1200
+@@ -76,32 +76,32 @@
+ endif
+ 
+ ifeq ($(ARCH),Linux-x86_64)             # -- Linux for AMD Opteron
+-CXX      = g++44
+-LD       = g++44
+-CC       = gcc44
+-FC       = gcc44
+-# -- use these with fastblas:
+-#CXX      = g++
+-#LD       = g++
+-#CC       = gcc
+-#FC       = gfortran
++LD       = $(CPP)
++FC       = $(F90)  
++#LD       = xild
++#AR       = xiar -r 
+ ifdef DEBUG
+-  OPT    = -gstabs+
++  OPT    = -g
+ else
+-  OPT    = -m64 -O3 -w
++  OPT    = -xHOST -O3 -ip -no-prec-div -static-intel
++  #OPT    = $(OPTFLAGS) $(PRECFLAGS)
+ endif
+ CFLAGS   = $(DEFINES) $(OPT)
+ FFLAGS   = $(DEFINES) $(OPT)
+ CXXFLAGS = $(DEFINES) $(OPT) -Wno-deprecated
+-F77LIBS  = -lacml -lacml_mv -lgfortran
+-# -- fastblas = GotoBLAS2. Does not work on AMD 6200 series CPUs
+-#F77LIBS  = -lfastblas -lgfortran
+-# -- this works reliably with either compiler suite but is slow on AMD/Opteron
+-#F77LIBS  = -llapack -lgfortran
++#F77LIBS  = -L$(MKLROOT)/lib -lmkl_lapack -lmkl -lmkl_em64t -liomp5 -lifcore -lstdc++ -lipr
++#F77LIBS  = $(EBVARLDFLAGS) $(EBVARLIBLAPACK_MT) - lmkl_blas95_lp64 -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_core -lmkl_intel_thread -L$(EBROOTIFORT)/compiler/lib/intel64 -lifcore -liomp5 -lpthread -lm
++F77LIBS  = $(EBVARLDFLAGS) $(EBVARLIBLAPACK_MT) -lifcore -lm
++YACC     = bison -o y.tab.c
+ LDFLAGS  = $(OPT) $(LIBDIR)
+ RANLIB   = ranlib
+ ifdef MPI
+-  LDFLAGS += -L/usr/lib64/openmpi/1.4-gcc/lib -lfem_mp -lvec $(F77LIBS) -lmpi
++  CXX      = $(MPICXX)
++  CC       = $(MPICC)
++  FC       = $(MPIF90)
++  CFLAGS  += -I$(MPI_INC_DIR)
++  F77LIBS  = $(EBVARLIBSCALAPACK)
++  LDFLAGS += -lfem_mp -lvec $(F77LIBS) -L$(MPI_LIB_LIB) -lmpi -losmcomp
+ else
+   LDFLAGS += -lfem -lvec $(F77LIBS)
+ endif

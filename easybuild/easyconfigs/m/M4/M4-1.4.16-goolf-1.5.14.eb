@@ -7,11 +7,18 @@ It is mostly SVR4 compatible although it has some extensions
 (for example, handling more than 9 positional parameters to macros).
 GNU M4 also has built-in functions for including files, running shell commands, doing arithmetic, etc.
 """
+<<<<<<< HEAD
+toolchain = {'name': 'goolf', 'version': '1.5.14'} # tweaked by EasyBuild (was: {'version': '1.6.10', 'name': 'goolf'} # tweaked by EasyBuild (was: {'name': 'goolf', 'version': '1.4.10'}))
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['http://ftpmirror.gnu.org/m4']
+=======
 
 toolchain = {'name': 'goolf', 'version': '1.5.14'} 
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = [GNU_SOURCE]
+>>>>>>> 1e12f88a57653a0dcdbd6d57e3a9141709e65f92
 
 patches = ['M4-%(version)s-no-gets.patch']
 

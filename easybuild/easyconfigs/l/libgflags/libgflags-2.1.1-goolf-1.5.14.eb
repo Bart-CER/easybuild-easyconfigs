@@ -1,0 +1,17 @@
+name = 'libgflags'
+version = '2.1.1'
+
+homepage = 'https://code.google.com/p/gflags'
+description = "The gflags package contains a library that implements commandline flags processing. As such it's a replacement for getopt(). It has increased flexibility, including built-in support for C++ types like string, and the ability to define flags in the source file in which they're used."
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+builddependencies = [('CMake', '2.8.12')]
+
+toolchainopts = {'optarch': True, 'pic': True}
+
+source_urls = ['https://github.com/schuhschuh/gflags/archive']
+sources = ['v%s.tar.gz' % (version)]
+
+easyblock = 'CMakeMake'
+
+moduleclass = 'lib'

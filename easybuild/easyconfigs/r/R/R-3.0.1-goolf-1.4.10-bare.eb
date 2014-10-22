@@ -18,8 +18,8 @@ configopts += " --with-recommended-packages=no"
 dependencies = [
     ('libreadline', '6.2'),
     ('ncurses', '5.9'),
-    ('libpng', '1.6.2'),  # for plotting in R
-    ('Java', '1.7.0_21', '', True),  # Java bindings are built if Java is found, might as well provide it
+    ('libpng', '1.6.2')  # for plotting in R
+#    ('Java', '1.7.0_25', '', True),  # Java bindings are built if Java is found, might as well provide it
 ]
 
 exts_list = []  # just to make it explicit this module doesn't include any extensions

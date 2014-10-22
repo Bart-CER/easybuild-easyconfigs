@@ -6,7 +6,7 @@ description = "Fortran compiler from Intel"
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = ['l_fcompxe_%(version)s.tgz']
+sources = ['/share/src/Intel/l_fcompxe_%(version)s.tgz' ]
 
 # compiler class
 moduleclass = 'compiler'
@@ -15,4 +15,4 @@ dontcreateinstalldir = 'True'
 
 # license file
 import os
-license_file = os.path.join(os.getenv('HOME'), "licenses", "intel", "license.lic")
+license_file = os.path.join("/share/apps/", "intel", "licenses","license.lic")

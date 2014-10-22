@@ -9,7 +9,7 @@ toolchain = {'name': 'gompi', 'version': '1.6.10'}
 toolchainopts = {'pic': True}
 
 source_urls = [homepage]
-sources = [SOURCELOWER_TGZ]
+sources = ['%(namelower)s-%(version)s.tgz']
 
 blaslib = 'OpenBLAS'
 blasver = '0.2.8'

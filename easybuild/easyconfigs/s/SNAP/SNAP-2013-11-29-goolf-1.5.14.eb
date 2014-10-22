@@ -1,0 +1,51 @@
+# Note:
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# It was auto-generated based on a template easyconfig, so it should be used with care.
+name = "SNAP" # tweaked by EasyBuild (was: 'NAME')
+version = "2013-11-29" # tweaked by EasyBuild (was: 'VERSION')
+
+easyblock = 'MakeCp'
+
+homepage = 'http://korflab.ucdavis.edu/software.html'
+description = """Semi-HMM-based Nucleic Acid Parser"""
+
+toolchain = {'version': '1.5.14', 'name': 'goolf'} # tweaked by EasyBuild (was: {'name': 'TEMPLATE', 'version': 'TK_VERSION'})
+toolchainopts = {}  # toolchain options, e.g. opt, pic, usempi, optarch, ...
+
+# For sources line to work correctly with --try-software-version, you MUST employ %s OR use a construct like SOURCE_TAR_GZ
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['http://korflab.ucdavis.edu/Software/']
+
+patches = []
+
+dependencies = []
+
+files_to_copy = [([
+'fathom',  
+'hmm-info',  
+'exonpairs', 
+'forge', 
+'hmm-assembler.pl', 
+'noncoding-trainer.pl', 
+'snap', 
+'patch-hmm.pl',  
+'zff2gff3.pl',
+'cds-trainer.pl',
+'Zoe/zoe-loop'], 'bin'),
+'Zoe/blosum62',  
+'00README', 
+'example.zff',  
+'HMM', 
+'DNA', 
+]
+
+modextravars = {'ZOE': '$root'}
+
+# The sanity test MUST be tuned before going production and submitting your contribution to upstream git repositories
+sanity_check_paths = {
+    'files': ['bin/snap', 'bin/zoe-loop'],
+    'dirs': ['HMM']
+}
+
+# You SHOULD change the following line; Kindly consult other easyconfigs for possible options
+moduleclass = 'bio'
