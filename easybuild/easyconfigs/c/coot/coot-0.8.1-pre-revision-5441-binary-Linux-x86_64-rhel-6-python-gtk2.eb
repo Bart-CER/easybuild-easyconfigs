@@ -1,0 +1,31 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Bart Verleye
+# Centre for eResearch
+# Auckland, New Zealand
+
+easyblock = "Tarball"
+
+name = 'coot'
+version = '0.8-binary-Linux-x86_64-rhel-6-python-gtk2'
+
+homepage = 'http://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/'
+description = """  Coot is for macromolecular model building, model 
+completion and validation, particularly suitable for protein modelling 
+using X-ray data.
+Coot displays maps and models and allows model manipulations such as 
+idealization, real space refinement, manual rotation/translation, 
+rigid-body fitting, ligand search, solvation, mutations, 
+rotamers, Ramachandran plots, skeletonization, 
+non-crystallographic symmetry and more.  """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+source_urls = ['http://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/binaries/release/']
+sources = ['%(name)s-%(version)s.tar.gz']
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['bin','include','info','lib'],
+}
+
+
