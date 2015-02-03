@@ -1,0 +1,33 @@
+easyblock = "PythonPackage"
+
+name = 'PLY'
+version = '3.4'
+
+homepage = 'http://www.dabeaz.com/ply'
+description = """Welcome to the PLY homepage. 
+ PLY is an implementation of lex and yacc parsing tools for Python. 
+ If you don't have the slightest idea what that means, you're 
+ probably in the wrong place. Otherwise, keep reading."""
+
+toolchain = {'name': 'goolf', 'version': '1.5.14'}
+
+majorversion = "%s.x" % ".".join(version.split('.')[:-1])
+source_urls = ['http://www.dabeaz.com/ply/']
+sources = [SOURCELOWER_TAR_GZ]
+
+python = "Python"
+pythonversion = '2.7.8'
+pythonshortversion = ".".join(pythonversion.split(".")[:-1])
+
+versionsuffix = "-%s-%s" % (python, pythonversion)
+
+dependencies = [
+    (python, pythonversion),
+               ]
+
+sanity_check_paths = {
+                      'files': [''],
+                      'dirs': ['lib/python%s/site-packages/' % pythonshortversion]
+                     }
+
+moduleclass = 'devel'
